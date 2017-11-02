@@ -11,8 +11,10 @@
     <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script type="text/javascript" src="./js/index.js"></script>
+    <!--<script type="text/javascript" src="/Login/js/login.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     <script type="text/javascript" src="./js/Messaging.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="./js/angular.min.js"></script>
     <script>
       function ChatController($scope) {
@@ -38,7 +40,7 @@
         });
 
         $scope.send = function send() {
-          console.log('Sending message:', $scope.text);
+          //console.log('Sending message:', $scope.text);
           socket.emit('message', $scope.text);
           $scope.text = '';
         };
@@ -58,8 +60,7 @@
       </div>
     </div>-->
     <!-- overflow css for chat window-->
-    
-      <div class="container container-margin" ng-controller="ChatController">
+      <div class="container container-margin show_container" ng-controller="ChatController">
         <div class="row">
           <div class="col-md-2">
               <div id="navClass">
@@ -120,7 +121,7 @@
                                     <strong class="primary-font" ng-bind="msg.name"></strong> <small class="pull-right text-muted">
                                         <span class="glyphicon glyphicon-time"></span>X (get time from db) mins ago</small>
                                 </div>
-                                <p id="msgtext" data-ng-model="messageText"></p>
+                                <p id="msgtext" data-ng-model="messageText">{{message.message}}</p>
                             </div>
                         </li>
                         <li class="right clearfix"><span class="chat-img pull-right">
@@ -131,7 +132,7 @@
                                     <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
                                     <strong class="pull-right primary-font"></strong>
                                 </div>
-                                <p id='response' ng-repeat ng-bind="msg.text"></p>
+                                <p id='response' ng-bind="msg.text"></p>
                             </div>
                         </li>
                         

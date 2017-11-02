@@ -5,7 +5,7 @@ $(document).ready(function() {
         //alert("Button submit");
         //grab message
         var msg = $("#btn-input").val();
-        console.log("msg = " + msg);
+        //console.log("msg = " + msg);
         
         // ajax call later
         // other = left side
